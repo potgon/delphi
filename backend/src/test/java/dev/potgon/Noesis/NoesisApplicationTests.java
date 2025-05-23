@@ -1,10 +1,10 @@
-package dev.potgon.Delphi;
+package dev.potgon.Noesis;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DelphiApplicationTests {
+class NoesisApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,13 +1,13 @@
-package dev.potgon.Delphi;
+package dev.potgon.Noesis;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DelphiApplication {
+public class NoesisApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DelphiApplication.class, args);
+		SpringApplication.run(NoesisApplication.class, args);
 	}
 
 }
