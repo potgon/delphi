@@ -2,18 +2,18 @@ package dev.potgon.Noesis.journal.domain;
 
 import dev.potgon.Noesis.auth.domain.User;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.Map;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table
+@Getter
+@Setter
 @AllArgsConstructor
-@RequiredArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Entry {
     @Id
@@ -30,7 +30,7 @@ public class Entry {
     private String content;
 
     @ElementCollection
-    private Map<String, Integer> emotions; // e.g., {"joy": 3, "sadness": 1}
+    private List<EmotionIntensity> emotions;
 
     @Column(name = "dopamine_level")
     private Integer dopamineLevel;

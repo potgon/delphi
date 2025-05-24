@@ -1,11 +1,9 @@
 package dev.potgon.Noesis.habits.application;
 
-import dev.potgon.Noesis.auth.domain.User;
-import dev.potgon.Noesis.habits.domain.Habit;
-import jakarta.persistence.ManyToOne;
+import dev.potgon.Noesis.journal.application.EmotionIntensityDTO;
 import lombok.*;
 
-import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -13,9 +11,9 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 public class HabitRecordDTO {
-    private Long id;
-    private User user;
-    private Habit habit;
-    private LocalDate date;
+    private Long habitId;
+    private String date;
     private boolean completed;
+    private List<EmotionIntensityDTO> emotions;
+    private Integer dopamineLevel;
 }

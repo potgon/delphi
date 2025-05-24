@@ -1,14 +1,15 @@
 package dev.potgon.Noesis.habits.domain;
 
+import dev.potgon.Noesis.auth.domain.User;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table
+@Getter
+@Setter
 @AllArgsConstructor
-@RequiredArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Habit {
     @Id
@@ -18,4 +19,8 @@ public class Habit {
     private String name;
 
     private String description;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }

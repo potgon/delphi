@@ -4,9 +4,7 @@ import dev.potgon.Noesis.auth.application.UserType;
 import dev.potgon.Noesis.habits.domain.HabitRecord;
 import dev.potgon.Noesis.journal.domain.Entry;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -16,6 +14,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
+@Getter
+@Setter
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Builder

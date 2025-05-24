@@ -1,15 +1,17 @@
 package dev.potgon.Noesis.habits.domain;
 
 import dev.potgon.Noesis.auth.domain.User;
+import dev.potgon.Noesis.journal.domain.EmotionIntensity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table
+@Getter
+@Setter
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Builder
@@ -29,4 +31,10 @@ public class HabitRecord {
     private LocalDate date;
 
     private boolean completed;
+
+    @ElementCollection
+    private List<EmotionIntensity> emotions;
+
+    @Column(name = "dopamine_level")
+    private Integer dopamineLevel;
 }
