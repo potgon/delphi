@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import java.time.LocalDate;
 
 @Entity
+@Table
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Builder
@@ -17,10 +18,12 @@ public class HabitRecord {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "habit_id", nullable = false)
     private Habit habit;
 
     private LocalDate date;

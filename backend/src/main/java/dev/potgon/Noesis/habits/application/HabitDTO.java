@@ -5,8 +5,10 @@ import lombok.*;
 @Getter
 @Setter
 @AllArgsConstructor
-@RequiredArgsConstructor
 @NoArgsConstructor
 @Builder
 public class HabitDTO {
+    private Long id;
+    private String name;
+    private String description;
 }

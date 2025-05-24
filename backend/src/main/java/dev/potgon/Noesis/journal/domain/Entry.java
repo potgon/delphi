@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Set;
 
 @Entity
+@Table
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Builder
@@ -19,7 +20,8 @@ public class Entry {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     private LocalDateTime createdAt;
@@ -30,19 +32,24 @@ public class Entry {
     @ElementCollection
     private Map<String, Integer> emotions; // e.g., {"joy": 3, "sadness": 1}
 
+    @Column(name = "dopamine_level")
     private Integer dopamineLevel;
 
     @ElementCollection
     private Set<String> tags;
 
+    @Column(name = "ai_summary")
     @Lob
     private String aiSummary;
 
+    @Column(name = "ai_emotional_analysis")
     @Lob
     private String aiEmotionalAnalysis;
 
+    @Column(name = "follow_up_suggestion")
     @Lob
     private String followUpSuggestion;
 
+    @Column(name = "voice_transcription")
     private String voiceTranscription;
 }
