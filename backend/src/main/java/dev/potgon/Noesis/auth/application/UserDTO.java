@@ -16,7 +16,7 @@ public class UserDTO {
     private String username;
     private String email;
     private String passwordHash;
-    private Enum<UserType> userType;
+    private Enum<UserRole> userRole;
     private String pin;
     private String biometricHash;
     private List<EntryDTO> entries = new ArrayList<>();

@@ -5,13 +5,16 @@ import org.springframework.http.HttpRequest;
 import org.springframework.http.client.ClientHttpRequestExecution;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StreamUtils;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
+@Component
 @Slf4j
 public class LoggingInterceptor implements ClientHttpRequestInterceptor {
+
     @Override
     public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
         logRequest(request, body);
@@ -20,7 +23,7 @@ public class LoggingInterceptor implements ClientHttpRequestInterceptor {
         return response;
     }
 
-    private void logRequest(HttpRequest request, byte[] body) throws IOException {
+    private void logRequest(HttpRequest request, byte[] body) {
         log.debug("""
                         === [Perplexity API Request] ===
                         URI     : {}

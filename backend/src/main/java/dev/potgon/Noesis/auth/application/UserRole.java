@@ -1,8 +1,6 @@
 package dev.potgon.Noesis.auth.application;
 
-public enum UserType {
+public enum UserRole {
     INITIATE,
-    WANDERER,
-    SEEKER,
     ORACLE
 }

@@ -1,11 +1,12 @@
 package dev.potgon.Noesis.auth.domain;
 
-import dev.potgon.Noesis.auth.application.UserType;
+import dev.potgon.Noesis.auth.application.UserRole;
 import dev.potgon.Noesis.habits.domain.HabitRecord;
 import dev.potgon.Noesis.journal.domain.Entry;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
@@ -33,9 +34,9 @@ public class User implements UserDetails {
     @Column(name = "password_hash")
     private String passwordHash;
 
-    @Column(name = "user_type", nullable = false)
+    @Column(name = "user_role", nullable = false)
     @Enumerated(EnumType.STRING)
-    private UserType userType;
+    private UserRole userRole;
 
     private String pin;
 
@@ -50,7 +51,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return List.of(new SimpleGrantedAuthority("ROLE_" + this.userRole.name()));
     }
 
     @Override
